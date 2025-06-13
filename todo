@@ -1,0 +1,7 @@
+lidar, camera to iris
+
+indoor environment
+
+slam, localization, exploration, control
+https://docs.px4.io/main/ko/sim_gazebo_classic/octomap.html
+https://github.com/Jaeyoung-Lim/mavros_controllers
