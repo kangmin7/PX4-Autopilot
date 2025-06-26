@@ -29,6 +29,7 @@ git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 bash ./PX4-Autopilot/Tools/setup/ubuntu.sh
 
 make px4_sitl gazebo-classic
+make clean
 
 DONT_RUN=1 make px4_sitl_default gazebo-classic
 source ~/catkin_ws/devel/setup.bash    # (optional)
@@ -69,4 +70,8 @@ sudo apt install ros-noetic-rosbash
 
 7. Key, drag not working
 setxkbmap -layout us
+
+
+8. cmake version
+find . -type f -name "CMakeLists.txt" -exec sed -i -E 's/cmake_minimum_required\(VERSION 2\.[0-9]+(\.[0-9]+)?\)/cmake_minimum_required(VERSION 3.5)/g' {} +
 
