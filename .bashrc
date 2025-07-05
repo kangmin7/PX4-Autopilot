@@ -94,6 +94,7 @@ alias l='ls -CF'
 
 alias sb='source ~/.bashrc'
 alias gb='gedit ~/.bashrc'
+alias cb='cp ~/.bashrc ~/PX4-Autopilot'
 alias memo='gedit ~/PX4-Autopilot/memo'
 alias todo='gedit ~/PX4-Autopilot/todo'
 alias kill='pkill -9 px4 && pkill -9 gazebo && pkill -9 gzserver && pkill -9 gzclient'
@@ -101,12 +102,11 @@ alias px4='cd ~/PX4-Autopilot && \
 DONT_RUN=1 make px4_sitl_default gazebo-classic && \
 source Tools/simulation/gazebo-classic/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default && \
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/simulation/gazebo-classic/sitl_gazebo-classic && \
-roslaunch px4 mavros_posix_sitl.launch vehicle:=iris_rplidar'
+roslaunch px4 mavros_posix_sitl.launch vehicle:=iris_rplidar world:=$(rospack find mavlink_sitl_gazebo)/worlds/baylands.world'
 alias mavros='roslaunch mavros px4.launch fcu_url:="udp://:14540@127.0.0.1:14557"'
 alias qgc='~/QGroundControl.AppImage'
 
 alias list='rostopic list'
-alias echo='rostopic echo -c'
 alias imu='rostopic echo -c /mavros/imu/data'
 alias pose='rostopic echo -c /mavros/local_position/pose'
 
